@@ -31,7 +31,10 @@ app.get('/', function(req, res){
         contact_list: contactList,
     })
 })
-
+app.post('/create-contact', function(req, res){
+    contactList.push(req.body);
+    res.redirect("back");
+})
 app.listen(port, function(err){
     if (err){
         console.log(`There was an error in running the server: ${err}`);

@@ -4,6 +4,7 @@
         <title>
             <%= title %>
         </title>
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
 
     </head>
     <body>
@@ -25,5 +26,12 @@
                 <%}%>
             </ul>
         </div>
+
+        <form action="create-contact" method="POST">
+            <input type="text" name="name" id="contact-name" placeholder="Enter Name" required>
+            <input type="number" name="phone" id="contact-phone" placeholder="Enter Phone" required>
+            <button type="submit" id="contact-button">Create Contact</button>
+        </form>
+
     </body>
 </html>
