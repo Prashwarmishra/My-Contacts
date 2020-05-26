@@ -3,6 +3,8 @@ const path = require("path");
 
 const port = 8000;
 
+const db = require("./config/mongoose");
+
 const app = express();
 
 app.set("view engine", "ejs");
@@ -35,6 +37,17 @@ app.post('/create-contact', function(req, res){
     contactList.push(req.body);
     res.redirect("back");
 })
+
+app.get('/delete-contact', function(req, res){
+    let phoneNo = req.query.phone;
+    let contactDelete = contactList.findIndex( contact => phoneNo == i.phone);
+
+    if (contactDelete != 1){
+        contactList.splice(contactDelete, 1);
+    }
+    return res.redirect('back')
+})
+
 app.listen(port, function(err){
     if (err){
         console.log(`There was an error in running the server: ${err}`);
