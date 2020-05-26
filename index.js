@@ -14,21 +14,6 @@ app.set("views", path.join(__dirname, 'views'));
 app.use(express.urlencoded());
 app.use(express.static('./assets'));
 
-let contactList = [
-    {
-        name: 'Prashwar',
-        phone: 7406610689,
-    },
-    {
-        name: 'Pratyush',
-        phone: 7259389506,
-    },
-    {
-        name: 'Risabh',
-        phone: 7899774171
-    }
-]
-
 app.get('/', function(req, res){
     Contact.find({}, function(err, contacts){
         if (err){
